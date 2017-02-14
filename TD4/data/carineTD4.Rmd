@@ -1,0 +1,15 @@
+```{r}
+tab <- read.csv("Nile.csv")
+```
+
+```{r}
+ggplot(data=tab, aes(x=time, y=Nile)) + geom_point()  + xlab("Time (year)") +ylab("Nile") + ylim(0,NA) + geom_smooth()
+```
+
+As we can see in the graph, we have the volume of the Nile that varies between the years 1871 and 1970.
+
+We can realize that in 1879, the volume of the Nile was at its highest point which is 1370 and in 1913 , the volume was at its lowest point which is less than 500.
+
+We can also notice thanks to the function "geom_smooth()" that the volume decreases by time.
+
+
