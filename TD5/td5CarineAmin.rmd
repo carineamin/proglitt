@@ -1,0 +1,28 @@
+---
+title: "Data Manipulation with dplyr"
+author: "Carine Amin"
+date: "March 3, 2017"
+output: pdf_document
+---
+
+```{r}
+library(readr);
+df <- read_tsv (file = "/Users/carineamin/Documents/S6/stat/proglitt/dpt2015.txt",
+locale = locale(encoding = "ISO-8859-1"))
+```
+
+```{r}
+library(xtable);
+df %>% sample_n(6) %>% as.data.frame() %>% xtable(.)
+```
+
+
+--- Le nombre de 'CARINE' n??e en '1996' dans chaque dpt. ---
+
+```{r}
+library(ggplot2)
+df %>% filter(preusuel=='CARINE',annais == '1996') %>% select(-sexe) %>% arrange(dpt)  %>%
+ggplot(aes(x=dpt, y=nombre))+geom_point() 
+```
+
+
